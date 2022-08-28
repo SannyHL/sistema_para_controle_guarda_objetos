@@ -11,6 +11,8 @@ public class EnderecoCliente {
     private String cpfCliente;
 
     @Column
+    private String nome;
+    @Column
     private String rua;
     @Column
     private String numeroCasa;
@@ -89,9 +91,19 @@ public class EnderecoCliente {
         this.dataCadastroEndereco = dataCadastroEndereco;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     @OneToOne
-    @JoinColumn(name = "clientes_cpfCliente")
+    @JoinColumns({
+            @JoinColumn(name = "clientes_cpfCliente", referencedColumnName = "cpfCliente") ,
+            @JoinColumn(name = "clientes_nome", referencedColumnName = "nome")
+    })
     private Clientes clientes;
 
 }
