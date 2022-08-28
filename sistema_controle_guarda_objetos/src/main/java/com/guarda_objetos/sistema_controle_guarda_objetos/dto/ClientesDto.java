@@ -1,5 +1,7 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.dto;
 
+import com.guarda_objetos.sistema_controle_guarda_objetos.model.Clientes;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
@@ -76,5 +78,19 @@ public class ClientesDto {
 
     public void setWhatsapp(String whatsapp) {
         this.whatsapp = whatsapp;
+    }
+
+
+    public static ClientesDto convert(Clientes clientes){
+        var clientesDto = new ClientesDto();
+        clientesDto.setCpfCliente(clientes.getCpfCliente());
+        clientesDto.setNome(clientes.getNome());
+        clientesDto.setEmail(clientes.getEmail());
+        clientesDto.setTelefone(clientes.getTelefone());
+        clientesDto.setWhatsapp(clientes.getWhatsapp());
+        clientesDto.setDataNascimento(clientes.getDataNascimento());
+        clientesDto.setTelefoneFixo(clientes.getTelefoneFixo());
+
+        return clientesDto;
     }
 }
