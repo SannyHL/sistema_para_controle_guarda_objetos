@@ -1,5 +1,7 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
+import com.guarda_objetos.sistema_controle_guarda_objetos.dto.EnderecoClienteDto;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -97,6 +99,20 @@ public class EnderecoCliente {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public static EnderecoCliente convert(EnderecoClienteDto enderecoClienteDto){
+        var enderecoCliente = new EnderecoCliente();
+        enderecoCliente.setCpfCliente(enderecoClienteDto.getCpfCliente());
+        enderecoCliente.setNome(enderecoClienteDto.getNome());
+        enderecoCliente.setRua(enderecoClienteDto.getRua());
+        enderecoCliente.setNumeroCasa(enderecoClienteDto.getNumeroCasa());
+        enderecoCliente.setBairro(enderecoClienteDto.getBairro());
+        enderecoCliente.setCidade(enderecoClienteDto.getCidade());
+        enderecoCliente.setEstado(enderecoClienteDto.getEstado());
+        enderecoCliente.setPais(enderecoClienteDto.getPais());
+
+        return enderecoCliente;
     }
 
     @OneToOne
