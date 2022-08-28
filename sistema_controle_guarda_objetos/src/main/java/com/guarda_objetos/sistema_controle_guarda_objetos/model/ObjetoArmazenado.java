@@ -11,6 +11,8 @@ public class ObjetoArmazenado {
     private String cpfCliente;
 
     @Column
+    private String nome;
+    @Column
     private Boolean objetoArmazenado;
     @Column
     private Integer quantidadeObjetosArmazenados;
@@ -79,7 +81,19 @@ public class ObjetoArmazenado {
         this.dataRetirada = dataRetirada;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     @ManyToOne
-    @JoinColumn(name = "clientes_cpfCliente")
+    @JoinColumns({
+            @JoinColumn(name = "clientes_cpfCliente", referencedColumnName = "cpfCliente") ,
+            @JoinColumn(name = "clientes_nome", referencedColumnName = "nome")
+    })
+
     private Clientes clientes;
 }
