@@ -1,5 +1,7 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.dto;
 
+import com.guarda_objetos.sistema_controle_guarda_objetos.model.ObjetoArmazenado;
+
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
@@ -10,7 +12,7 @@ public class ObjetoArmazenadoDto {
     @NotBlank
     private String nome;
     @NotBlank
-    private Boolean objetoArmazenado;
+    private Boolean objetosArmazenado;
     @NotBlank
     private Integer quantidadeObjetosArmazenados;
     @NotBlank
@@ -37,12 +39,12 @@ public class ObjetoArmazenadoDto {
         this.nome = nome;
     }
 
-    public Boolean getObjetoArmazenado() {
-        return objetoArmazenado;
+    public Boolean getObjetosArmazenado() {
+        return objetosArmazenado;
     }
 
-    public void setObjetoArmazenado(Boolean objetoArmazenado) {
-        this.objetoArmazenado = objetoArmazenado;
+    public void setObjetosArmazenado(Boolean objetosArmazenado) {
+        this.objetosArmazenado = objetosArmazenado;
     }
 
     public Integer getQuantidadeObjetosArmazenados() {
@@ -83,5 +85,19 @@ public class ObjetoArmazenadoDto {
 
     public void setDataRetirada(Date dataRetirada) {
         this.dataRetirada = dataRetirada;
+    }
+
+    public static ObjetoArmazenadoDto convert(ObjetoArmazenado objetoArmazenado){
+       var objetoArmazenadoDto = new ObjetoArmazenadoDto();
+       objetoArmazenadoDto.setCpfCliente(objetoArmazenado.getCpfCliente());
+       objetoArmazenadoDto.setNome(objetoArmazenado.getNome());
+       objetoArmazenadoDto.setObjetosArmazenado(objetoArmazenado.getObjetosArmazenado());
+       objetoArmazenadoDto.setQuantidadeObjetosArmazenados(objetoArmazenado.getQuantidadeObjetosArmazenados());
+       objetoArmazenadoDto.setDescricaoObjetos(objetoArmazenado.getDescricaoObjetos());
+       objetoArmazenadoDto.setDataArmazenamento(objetoArmazenado.getDataArmazenamento());
+       objetoArmazenadoDto.setDataPrevistaRetirada(objetoArmazenado.getDataPrevistaRetirada());
+       objetoArmazenadoDto.setDataRetirada(objetoArmazenado.getDataRetirada());
+
+        return objetoArmazenadoDto;
     }
 }

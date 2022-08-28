@@ -1,5 +1,7 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
+import com.guarda_objetos.sistema_controle_guarda_objetos.dto.ObjetoArmazenadoDto;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -13,7 +15,7 @@ public class ObjetoArmazenado {
     @Column
     private String nome;
     @Column
-    private Boolean objetoArmazenado;
+    private Boolean objetosArmazenado;
     @Column
     private Integer quantidadeObjetosArmazenados;
     @Column
@@ -33,12 +35,12 @@ public class ObjetoArmazenado {
         this.cpfCliente = cpfCliente;
     }
 
-    public Boolean getObjetoArmazenado() {
-        return objetoArmazenado;
+    public Boolean getObjetosArmazenado() {
+        return objetosArmazenado;
     }
 
-    public void setObjetoArmazenado(Boolean objetoArmazenado) {
-        this.objetoArmazenado = objetoArmazenado;
+    public void setObjetosArmazenado(Boolean objetosArmazenado) {
+        this.objetosArmazenado = objetosArmazenado;
     }
 
     public Integer getQuantidadeObjetosArmazenados() {
@@ -87,6 +89,20 @@ public class ObjetoArmazenado {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public static ObjetoArmazenado convert(ObjetoArmazenadoDto objetoArmazenadoDto){
+        var objetoArmazenado = new ObjetoArmazenado();
+        objetoArmazenado.setCpfCliente(objetoArmazenadoDto.getCpfCliente());
+        objetoArmazenado.setNome(objetoArmazenadoDto.getNome());
+        objetoArmazenado.setObjetosArmazenado(objetoArmazenadoDto.getObjetosArmazenado());
+        objetoArmazenado.setQuantidadeObjetosArmazenados(objetoArmazenadoDto.getQuantidadeObjetosArmazenados());
+        objetoArmazenado.setDescricaoObjetos(objetoArmazenadoDto.getDescricaoObjetos());
+        objetoArmazenado.setDataArmazenamento(objetoArmazenadoDto.getDataArmazenamento());
+        objetoArmazenado.setDataPrevistaRetirada(objetoArmazenadoDto.getDataPrevistaRetirada());
+        objetoArmazenado.setDataRetirada(objetoArmazenadoDto.getDataRetirada());
+
+        return objetoArmazenado;
     }
 
     @ManyToOne
