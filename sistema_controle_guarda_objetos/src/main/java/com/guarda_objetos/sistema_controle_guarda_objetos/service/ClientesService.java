@@ -24,5 +24,7 @@ public class ClientesService {
     }
 
 
-
+    public Clientes create(Clientes clientes) {
+       return clientesRepository.save(clientes);
+    };
 }
