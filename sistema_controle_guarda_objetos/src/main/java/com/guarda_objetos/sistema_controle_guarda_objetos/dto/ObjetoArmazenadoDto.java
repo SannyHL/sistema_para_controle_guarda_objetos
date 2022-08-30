@@ -87,17 +87,5 @@ public class ObjetoArmazenadoDto {
         this.dataRetirada = dataRetirada;
     }
 
-    public static ObjetoArmazenadoDto convert(ObjetoArmazenado objetoArmazenado){
-       var objetoArmazenadoDto = new ObjetoArmazenadoDto();
-       objetoArmazenadoDto.setCpfCliente(objetoArmazenado.getCpfCliente());
-       objetoArmazenadoDto.setNome(objetoArmazenado.getNome());
-       objetoArmazenadoDto.setObjetosArmazenado(objetoArmazenado.getObjetosArmazenado());
-       objetoArmazenadoDto.setQuantidadeObjetosArmazenados(objetoArmazenado.getQuantidadeObjetosArmazenados());
-       objetoArmazenadoDto.setDescricaoObjetos(objetoArmazenado.getDescricaoObjetos());
-       objetoArmazenadoDto.setDataArmazenamento(objetoArmazenado.getDataArmazenamento());
-       objetoArmazenadoDto.setDataPrevistaRetirada(objetoArmazenado.getDataPrevistaRetirada());
-       objetoArmazenadoDto.setDataRetirada(objetoArmazenado.getDataRetirada());
 
-        return objetoArmazenadoDto;
-    }
 }

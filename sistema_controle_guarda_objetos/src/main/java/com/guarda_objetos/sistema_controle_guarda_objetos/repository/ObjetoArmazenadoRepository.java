@@ -9,7 +9,5 @@ import java.util.List;
 @Repository
 public interface ObjetoArmazenadoRepository extends JpaRepository<ObjetoArmazenado, String> {
 
-    ObjetoArmazenado findByCpf(String cpfCliente);
-    List<ObjetoArmazenado> queryByNameLike(String nome);
 
 }

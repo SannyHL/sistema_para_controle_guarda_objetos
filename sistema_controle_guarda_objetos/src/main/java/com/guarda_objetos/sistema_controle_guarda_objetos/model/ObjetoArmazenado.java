@@ -10,21 +10,22 @@ import java.util.Date;
 public class ObjetoArmazenado {
 
     @Id
+    @Column(nullable = false, length = 15)
     private String cpfCliente;
 
-    @Column
+    @Column(nullable = false, length = 50)
     private String nome;
-    @Column
+    @Column(nullable = false, length = 100)
     private Boolean objetosArmazenado;
-    @Column
+    @Column(nullable = false, length = 5)
     private Integer quantidadeObjetosArmazenados;
-    @Column
+    @Column(nullable = false, length = 100)
     private String descricaoObjetos;
-    @Column
+    @Column(nullable = false, length = 15)
     private Date dataArmazenamento;
-    @Column
+    @Column(nullable = false, length = 15)
     private Date dataPrevistaRetirada;
-    @Column
+    @Column(length = 15)
     private Date dataRetirada;
 
     public String getCpfCliente() {
@@ -91,19 +92,7 @@ public class ObjetoArmazenado {
         this.nome = nome;
     }
 
-    public static ObjetoArmazenado convert(ObjetoArmazenadoDto objetoArmazenadoDto){
-        var objetoArmazenado = new ObjetoArmazenado();
-        objetoArmazenado.setCpfCliente(objetoArmazenadoDto.getCpfCliente());
-        objetoArmazenado.setNome(objetoArmazenadoDto.getNome());
-        objetoArmazenado.setObjetosArmazenado(objetoArmazenadoDto.getObjetosArmazenado());
-        objetoArmazenado.setQuantidadeObjetosArmazenados(objetoArmazenadoDto.getQuantidadeObjetosArmazenados());
-        objetoArmazenado.setDescricaoObjetos(objetoArmazenadoDto.getDescricaoObjetos());
-        objetoArmazenado.setDataArmazenamento(objetoArmazenadoDto.getDataArmazenamento());
-        objetoArmazenado.setDataPrevistaRetirada(objetoArmazenadoDto.getDataPrevistaRetirada());
-        objetoArmazenado.setDataRetirada(objetoArmazenadoDto.getDataRetirada());
 
-        return objetoArmazenado;
-    }
 
     @ManyToOne
     @JoinColumns({
