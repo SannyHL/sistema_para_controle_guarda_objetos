@@ -9,7 +9,5 @@ import java.util.List;
 @Repository
 public interface ClientesRepository extends JpaRepository<Clientes, String>{
 
-    Clientes findByCpf(String cpfCliente);
-    List<Clientes> queryByNameLike(String nome);
 
 }

@@ -1,7 +1,5 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
-import com.guarda_objetos.sistema_controle_guarda_objetos.dto.ClientesDto;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
@@ -11,20 +9,22 @@ import java.util.List;
 @Table(name = "CLIENTES")
 public class Clientes {
     @Id
+    @Column(nullable = false, length = 15)
     private String cpfCliente;
-    @Column
+
+    @Column(nullable = false, length = 50)
     private String nome;
-    @Column
+    @Column(nullable = false, length = 15)
     private Date dataNascimento;
-    @Column
+    @Column(nullable = false, length = 50)
     private String email;
-    @Column
+    @Column(nullable = false, length = 15)
     private String telefone;
-    @Column
+    @Column(nullable = false, length = 15)
     private String telefoneFixo;
-    @Column
+    @Column(nullable = false, length = 15)
     private String whatsapp;
-    @Column
+    @Column(nullable = false)
     private LocalDate dataRegistro;
 
     public String getCpfCliente() {
@@ -91,18 +91,7 @@ public class Clientes {
         this.dataRegistro = dataRegistro;
     }
 
-    public static  Clientes convert(ClientesDto clientesDto){
-        var clientes = new Clientes();
-        clientes.setCpfCliente(clientesDto.getCpfCliente());
-        clientes.setNome(clientesDto.getNome());
-        clientes.setEmail(clientesDto.getEmail());
-        clientes.setTelefone(clientesDto.getTelefone());
-        clientes.setWhatsapp(clientesDto.getWhatsapp());
-        clientes.setDataNascimento(clientesDto.getDataNascimento());
-        clientes.setTelefoneFixo(clientesDto.getTelefoneFixo());
 
-        return clientes;
-    }
 
     @OneToMany(mappedBy = "clientes")
     private List<ObjetoArmazenado> objetoArmazenado;
