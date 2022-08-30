@@ -22,11 +22,11 @@ public class ObjetoArmazenado {
     @Column(nullable = false, length = 100)
     private String descricaoObjetos;
     @Column(nullable = false, length = 15)
-    private Date dataArmazenamento;
+    private String dataArmazenamento;
     @Column(nullable = false, length = 15)
-    private Date dataPrevistaRetirada;
+    private String dataPrevistaRetirada;
     @Column(length = 15)
-    private Date dataRetirada;
+    private String dataRetirada;
 
     public String getCpfCliente() {
         return cpfCliente;
@@ -60,27 +60,27 @@ public class ObjetoArmazenado {
         this.descricaoObjetos = descricaoObjetos;
     }
 
-    public Date getDataArmazenamento() {
+    public String getDataArmazenamento() {
         return dataArmazenamento;
     }
 
-    public void setDataArmazenamento(Date dataArmazenamento) {
+    public void setDataArmazenamento(String dataArmazenamento) {
         this.dataArmazenamento = dataArmazenamento;
     }
 
-    public Date getDataPrevistaRetirada() {
+    public String getDataPrevistaRetirada() {
         return dataPrevistaRetirada;
     }
 
-    public void setDataPrevistaRetirada(Date dataPrevistaRetirada) {
+    public void setDataPrevistaRetirada(String dataPrevistaRetirada) {
         this.dataPrevistaRetirada = dataPrevistaRetirada;
     }
 
-    public Date getDataRetirada() {
+    public String getDataRetirada() {
         return dataRetirada;
     }
 
-    public void setDataRetirada(Date dataRetirada) {
+    public void setDataRetirada(String dataRetirada) {
         this.dataRetirada = dataRetirada;
     }
 

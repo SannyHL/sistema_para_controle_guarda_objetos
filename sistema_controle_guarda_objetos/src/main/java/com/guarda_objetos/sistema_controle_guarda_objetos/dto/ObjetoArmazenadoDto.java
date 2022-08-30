@@ -18,10 +18,10 @@ public class ObjetoArmazenadoDto {
     @NotBlank
     private String descricaoObjetos;
     @NotBlank
-    private Date dataArmazenamento;
+    private String dataArmazenamento;
     @NotBlank
-    private Date dataPrevistaRetirada;
-    private Date dataRetirada;
+    private String dataPrevistaRetirada;
+    private String dataRetirada;
 
     public String getCpfCliente() {
         return cpfCliente;
@@ -63,27 +63,27 @@ public class ObjetoArmazenadoDto {
         this.descricaoObjetos = descricaoObjetos;
     }
 
-    public Date getDataArmazenamento() {
+    public String getDataArmazenamento() {
         return dataArmazenamento;
     }
 
-    public void setDataArmazenamento(Date dataArmazenamento) {
+    public void setDataArmazenamento(String dataArmazenamento) {
         this.dataArmazenamento = dataArmazenamento;
     }
 
-    public Date getDataPrevistaRetirada() {
+    public String getDataPrevistaRetirada() {
         return dataPrevistaRetirada;
     }
 
-    public void setDataPrevistaRetirada(Date dataPrevistaRetirada) {
+    public void setDataPrevistaRetirada(String dataPrevistaRetirada) {
         this.dataPrevistaRetirada = dataPrevistaRetirada;
     }
 
-    public Date getDataRetirada() {
+    public String getDataRetirada() {
         return dataRetirada;
     }
 
-    public void setDataRetirada(Date dataRetirada) {
+    public void setDataRetirada(String dataRetirada) {
         this.dataRetirada = dataRetirada;
     }
 
