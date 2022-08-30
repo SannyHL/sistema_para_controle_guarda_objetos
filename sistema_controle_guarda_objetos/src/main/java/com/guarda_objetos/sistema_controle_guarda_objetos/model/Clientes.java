@@ -15,7 +15,7 @@ public class Clientes {
     @Column(nullable = false, length = 50)
     private String nome;
     @Column(nullable = false, length = 15)
-    private Date dataNascimento;
+    private String dataNascimento;
     @Column(nullable = false, length = 50)
     private String email;
     @Column(nullable = false, length = 15)
@@ -43,11 +43,11 @@ public class Clientes {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
