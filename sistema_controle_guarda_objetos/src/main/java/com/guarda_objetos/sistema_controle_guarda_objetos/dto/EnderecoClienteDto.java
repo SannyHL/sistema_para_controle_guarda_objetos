@@ -1,11 +1,7 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.dto;
 
 
-import com.guarda_objetos.sistema_controle_guarda_objetos.model.EnderecoCliente;
-
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 
 public class EnderecoClienteDto {
 
@@ -25,8 +21,7 @@ public class EnderecoClienteDto {
     private String estado;
     @NotBlank
     private String pais;
-    @NotBlank
-    private Date dataCadastroEndereco;
+
 
     public String getCpfCliente() {
         return cpfCliente;
@@ -92,25 +87,6 @@ public class EnderecoClienteDto {
         this.pais = pais;
     }
 
-    public Date getDataCadastroEndereco() {
-        return dataCadastroEndereco;
-    }
 
-    public void setDataCadastroEndereco(Date dataCadastroEndereco) {
-        this.dataCadastroEndereco = dataCadastroEndereco;
-    }
 
-    public static EnderecoClienteDto convert(EnderecoCliente enderecoCliente){
-        var enderecoClienteDto = new EnderecoClienteDto();
-        enderecoClienteDto.setCpfCliente(enderecoCliente.getCpfCliente());
-        enderecoClienteDto.setNome(enderecoCliente.getNome());
-        enderecoClienteDto.setRua(enderecoCliente.getRua());
-        enderecoClienteDto.setNumeroCasa(enderecoCliente.getNumeroCasa());
-        enderecoClienteDto.setBairro(enderecoCliente.getBairro());
-        enderecoClienteDto.setCidade(enderecoCliente.getCidade());
-        enderecoClienteDto.setEstado(enderecoCliente.getEstado());
-        enderecoClienteDto.setPais(enderecoCliente.getPais());
-
-        return enderecoClienteDto;
-    }
 }

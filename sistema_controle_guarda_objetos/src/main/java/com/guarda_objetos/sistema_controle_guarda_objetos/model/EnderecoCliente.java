@@ -1,33 +1,32 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
-import com.guarda_objetos.sistema_controle_guarda_objetos.dto.EnderecoClienteDto;
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ENDERECO_CLIENTE")
 public class EnderecoCliente {
 
     @Id
+    @Column(nullable = false, length = 15)
     private String cpfCliente;
 
-    @Column
+    @Column(nullable = false, length = 50)
     private String nome;
-    @Column
+    @Column(nullable = false, length = 30)
     private String rua;
-    @Column
+    @Column(nullable = false, length = 15)
     private String numeroCasa;
-    @Column
+    @Column(nullable = false, length = 15)
     private String bairro;
-    @Column
+    @Column(nullable = false, length = 15)
     private String cidade;
-    @Column
+    @Column(nullable = false, length = 15)
     private String estado;
-    @Column
+    @Column(nullable = false, length = 15)
     private String pais;
-    @Column
-    private Date dataCadastroEndereco;
+    @Column(nullable = false)
+    private LocalDateTime dataCadastroEndereco;
 
     public String getCpfCliente() {
         return cpfCliente;
@@ -85,11 +84,11 @@ public class EnderecoCliente {
         this.pais = pais;
     }
 
-    public Date getDataCadastroEndereco() {
+    public LocalDateTime getDataCadastroEndereco() {
         return dataCadastroEndereco;
     }
 
-    public void setDataCadastroEndereco(Date dataCadastroEndereco) {
+    public void setDataCadastroEndereco(LocalDateTime dataCadastroEndereco) {
         this.dataCadastroEndereco = dataCadastroEndereco;
     }
 
@@ -101,25 +100,11 @@ public class EnderecoCliente {
         this.nome = nome;
     }
 
-    public static EnderecoCliente convert(EnderecoClienteDto enderecoClienteDto){
-        var enderecoCliente = new EnderecoCliente();
-        enderecoCliente.setCpfCliente(enderecoClienteDto.getCpfCliente());
-        enderecoCliente.setNome(enderecoClienteDto.getNome());
-        enderecoCliente.setRua(enderecoClienteDto.getRua());
-        enderecoCliente.setNumeroCasa(enderecoClienteDto.getNumeroCasa());
-        enderecoCliente.setBairro(enderecoClienteDto.getBairro());
-        enderecoCliente.setCidade(enderecoClienteDto.getCidade());
-        enderecoCliente.setEstado(enderecoClienteDto.getEstado());
-        enderecoCliente.setPais(enderecoClienteDto.getPais());
 
-        return enderecoCliente;
-    }
 
     @OneToOne
-    @JoinColumns({
-            @JoinColumn(name = "clientes_cpfCliente", referencedColumnName = "cpfCliente") ,
-            @JoinColumn(name = "clientes_nome", referencedColumnName = "nome")
-    })
+    @JoinColumn(name = "clientes_cpfCliente", referencedColumnName = "cpfCliente")
+
     private Clientes clientes;
 
 }

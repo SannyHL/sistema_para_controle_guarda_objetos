@@ -9,6 +9,4 @@ import java.util.List;
 @Repository
 public interface EnderecoClienteRepository extends JpaRepository<EnderecoCliente, String> {
 
-    EnderecoCliente findByCpf(String cpfCliente);
-    List<EnderecoCliente> queryByNomeLike(String nome);
 }
