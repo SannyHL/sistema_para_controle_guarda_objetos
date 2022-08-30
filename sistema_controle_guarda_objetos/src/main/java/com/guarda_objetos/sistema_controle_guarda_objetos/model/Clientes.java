@@ -1,7 +1,7 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class Clientes {
     @Column(nullable = false, length = 15)
     private String whatsapp;
     @Column(nullable = false)
-    private LocalDate dataRegistro;
+    private LocalDateTime dataRegistro;
 
     public String getCpfCliente() {
         return cpfCliente;
@@ -83,11 +83,11 @@ public class Clientes {
         this.whatsapp = whatsapp;
     }
 
-    public LocalDate getDataRegistro() {
+    public LocalDateTime getDataRegistro() {
         return dataRegistro;
     }
 
-    public void setDataRegistro(LocalDate dataRegistro) {
+    public void setDataRegistro(LocalDateTime dataRegistro) {
         this.dataRegistro = dataRegistro;
     }
 

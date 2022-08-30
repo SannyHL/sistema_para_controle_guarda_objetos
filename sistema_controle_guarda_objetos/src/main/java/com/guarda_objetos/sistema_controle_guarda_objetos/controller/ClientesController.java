@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +29,7 @@ public class ClientesController {
     public ResponseEntity<Clientes> criaCliente(@RequestBody @Valid ClientesDto clientesDto){
         var clientes = new Clientes();
         BeanUtils.copyProperties(clientesDto, clientes);
-        clientes.setDataRegistro(LocalDate.now(ZoneId.of("UTC")));
+        clientes.setDataRegistro(LocalDateTime.now(ZoneId.of("UTC")));
         return new ResponseEntity<>(clientesService.create(clientes), HttpStatus.CREATED);
 
     }
