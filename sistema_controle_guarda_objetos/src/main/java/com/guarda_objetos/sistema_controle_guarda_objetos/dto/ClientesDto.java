@@ -10,7 +10,7 @@ public class ClientesDto {
     @NotBlank
     private String nome;
     @NotBlank
-    private Date dataNascimento;
+    private String dataNascimento;
 
     private String email;
     @NotBlank
@@ -36,11 +36,11 @@ public class ClientesDto {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
