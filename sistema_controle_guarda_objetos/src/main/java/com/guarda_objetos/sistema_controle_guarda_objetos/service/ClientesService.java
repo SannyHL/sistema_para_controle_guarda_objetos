@@ -32,6 +32,7 @@ public class ClientesService {
         return clientesRepository.findById(cpfCliente);
     }
 
+    @Transactional
     public void deletar(Clientes clientes) {
         clientesRepository.delete(clientes);
     }
