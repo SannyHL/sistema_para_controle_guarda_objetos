@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "tb_clientes")
 public class Clientes {
     @Id
     @Column(nullable = false, length = 15)
@@ -92,11 +92,8 @@ public class Clientes {
 
 
 
-    @OneToMany
-    @JoinColumn(name = "objetos_armazenados_id")
-    private List<ObjetoArmazenado> objetoArmazenado;
-
-    @OneToOne(mappedBy = "endereco_id")
+    @OneToOne
+    @JoinColumn(name = "endereco_id")
     private EnderecoCliente enderecoCliente;
 
 }

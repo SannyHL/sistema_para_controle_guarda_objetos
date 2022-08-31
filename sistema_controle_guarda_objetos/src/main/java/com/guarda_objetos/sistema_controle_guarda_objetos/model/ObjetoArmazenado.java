@@ -1,9 +1,6 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "objetos_armazenados")
@@ -92,5 +89,8 @@ public class ObjetoArmazenado {
         this.nome = nome;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "tb_clientes_id")
     private Clientes clientes;
+
 }

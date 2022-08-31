@@ -102,6 +102,4 @@ public class EnderecoCliente {
 
 
 
-    private Clientes clientes;
-
 }
