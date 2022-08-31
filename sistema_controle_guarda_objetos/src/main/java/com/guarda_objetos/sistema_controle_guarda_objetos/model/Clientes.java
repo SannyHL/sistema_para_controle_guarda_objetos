@@ -2,11 +2,10 @@ package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "CLIENTES")
+@Table(name = "clientes")
 public class Clientes {
     @Id
     @Column(nullable = false, length = 15)
@@ -93,9 +92,11 @@ public class Clientes {
 
 
 
-    @OneToMany(mappedBy = "clientes")
+    @OneToMany
+    @JoinColumn(name = "objetos_armazenados_id")
     private List<ObjetoArmazenado> objetoArmazenado;
-    @OneToOne(mappedBy = "clientes")
+
+    @OneToOne(mappedBy = "endereco_id")
     private EnderecoCliente enderecoCliente;
 
 }

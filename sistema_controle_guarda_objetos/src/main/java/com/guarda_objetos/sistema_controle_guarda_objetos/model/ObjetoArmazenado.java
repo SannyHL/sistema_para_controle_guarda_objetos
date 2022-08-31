@@ -1,12 +1,12 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
-import com.guarda_objetos.sistema_controle_guarda_objetos.dto.ObjetoArmazenadoDto;
-
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "DADOS_OBJETOS_ARMAZENADOS")
+@Table(name = "objetos_armazenados")
 public class ObjetoArmazenado {
 
     @Id
@@ -91,14 +91,6 @@ public class ObjetoArmazenado {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-
-
-    @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "clientes_cpfCliente", referencedColumnName = "cpfCliente") ,
-            @JoinColumn(name = "clientes_nome", referencedColumnName = "nome")
-    })
 
     private Clientes clientes;
 }

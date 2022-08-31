@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "ENDERECO_CLIENTE")
+@Table(name = "endereco")
 public class EnderecoCliente {
 
     @Id
@@ -101,9 +101,6 @@ public class EnderecoCliente {
     }
 
 
-
-    @OneToOne
-    @JoinColumn(name = "clientes_cpfCliente", referencedColumnName = "cpfCliente")
 
     private Clientes clientes;
 
