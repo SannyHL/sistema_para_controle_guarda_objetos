@@ -9,14 +9,16 @@ public class EnderecoCliente {
 
     @Id
     @Column(nullable = false, length = 15)
-    private String cpfCliente;
+    private Long cep;
 
-    @Column(nullable = false, length = 50)
-    private String nome;
     @Column(nullable = false, length = 30)
     private String rua;
     @Column(nullable = false, length = 15)
     private String numeroCasa;
+
+    @Column(nullable = false, length = 15)
+    private String complemento;
+
     @Column(nullable = false, length = 15)
     private String bairro;
     @Column(nullable = false, length = 15)
@@ -25,15 +27,13 @@ public class EnderecoCliente {
     private String estado;
     @Column(nullable = false, length = 15)
     private String pais;
-    @Column(nullable = false)
-    private LocalDateTime dataCadastroEndereco;
 
-    public String getCpfCliente() {
-        return cpfCliente;
+    public Long getCep() {
+        return cep;
     }
 
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
+    public void setCep(Long cep) {
+        this.cep = cep;
     }
 
     public String getRua() {
@@ -50,6 +50,14 @@ public class EnderecoCliente {
 
     public void setNumeroCasa(String numeroCasa) {
         this.numeroCasa = numeroCasa;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
 
     public String getBairro() {
@@ -82,22 +90,6 @@ public class EnderecoCliente {
 
     public void setPais(String pais) {
         this.pais = pais;
-    }
-
-    public LocalDateTime getDataCadastroEndereco() {
-        return dataCadastroEndereco;
-    }
-
-    public void setDataCadastroEndereco(LocalDateTime dataCadastroEndereco) {
-        this.dataCadastroEndereco = dataCadastroEndereco;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
 

@@ -29,7 +29,6 @@ public class EnderecoClienteController {
     public ResponseEntity<EnderecoCliente> criarEndereco(@RequestBody @Valid EnderecoClienteDto enderecoClienteDto){
        var enderecoCliente = new EnderecoCliente();
         BeanUtils.copyProperties(enderecoClienteDto, enderecoCliente);
-        enderecoCliente.setDataCadastroEndereco(LocalDateTime.now(ZoneId.of("UTC")));
         return new ResponseEntity<>(enderecoClienteService.create(enderecoCliente), HttpStatus.CREATED);
     }
 
@@ -38,9 +37,9 @@ public class EnderecoClienteController {
         return new ResponseEntity<>(enderecoClienteService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{cpfCliente}")
-    public ResponseEntity<EnderecoCliente> getCpf(@PathVariable(value = "cpfCliente") String cpfCliente){
-        Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cpfCliente);
+    @GetMapping("/{cep}")
+    public ResponseEntity<EnderecoCliente> getCep(@PathVariable(value = "cep") Long cep){
+        Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cep);
         if (enderecoClienteOptional.isPresent()){
             return new ResponseEntity<>(enderecoClienteOptional.get(), HttpStatus.OK);
         } else {
@@ -48,9 +47,9 @@ public class EnderecoClienteController {
         }
     }
 
-    @DeleteMapping("/")
-    public ResponseEntity<EnderecoCliente> deletarEndereco(@PathVariable(value = "cpfCliente") String cpfCliente){
-        Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cpfCliente);
+    @DeleteMapping("/{cep}")
+    public ResponseEntity<EnderecoCliente> deletarEndereco(@PathVariable(value = "cep") Long cep){
+        Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cep);
         if(enderecoClienteOptional.isPresent()){
             enderecoClienteService.delete(enderecoClienteOptional.get());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -59,13 +58,12 @@ public class EnderecoClienteController {
         }
     }
 
-    @PutMapping("/")
-    public ResponseEntity<EnderecoCliente> atualizarEndereco(@PathVariable(value = "cpfCliente") String cpfCliente, @RequestBody @Valid EnderecoClienteDto enderecoClienteDto){
-        Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cpfCliente);
+    @PutMapping("/{cep}")
+    public ResponseEntity<EnderecoCliente> atualizarEndereco(@PathVariable(value = "cep") Long cep, @RequestBody @Valid EnderecoClienteDto enderecoClienteDto){
+        Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cep);
         if(enderecoClienteOptional.isPresent()){
             var enderecoCliente = new EnderecoCliente();
             BeanUtils.copyProperties(enderecoClienteDto, enderecoCliente);
-            enderecoCliente.setDataCadastroEndereco(enderecoClienteOptional.get().getDataCadastroEndereco());
             return new ResponseEntity<>(enderecoClienteService.create(enderecoCliente), HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

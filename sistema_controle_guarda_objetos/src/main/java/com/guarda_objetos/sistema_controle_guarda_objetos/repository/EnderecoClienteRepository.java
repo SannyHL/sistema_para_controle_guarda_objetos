@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EnderecoClienteRepository extends JpaRepository<EnderecoCliente, String> {
+public interface EnderecoClienteRepository extends JpaRepository<EnderecoCliente, Long> {
 
 }
