@@ -13,6 +13,6 @@ INSERT INTO tb_clientes VALUES('59745678910', 'casa b', '15/03/2012', now(), 'te
 INSERT INTO tb_clientes VALUES('12345988910',  'casa', '12/03/2014', now(), 'test1@test', 'José Maria', '62', '04794621420', '04733548832', '047953121420', '32183650');
 
 
-INSERT INTO objetos_armazenados VALUES( '21/08/2021', '22/08/2021', '25/08/2021', 'Bolsa azul', 'José Maria', false, 1, '12345988910');
+INSERT INTO tb_objetos_armazenados VALUES(2, '21/08/2021', '22/08/2021', '25/08/2021', 'Bolsa azul', 'José Maria', 'false', '1', '12345988910');
 
-INSERT INTO objetos_armazenados VALUES( '13/04/2021', '14/04/2021', '15/04/2021', 'Bolsa verde, sacola de plastico', 'José Pedro', false, 2, '59745678910');
+INSERT INTO tb_objetos_armazenados VALUES(1, '13/04/2021', '14/04/2021', '15/04/2021', 'Bolsa verde, sacola de plastico', 'José Pedro', 'false', '2', '59745678910');
