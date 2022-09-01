@@ -1,7 +1,7 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "endereco")
@@ -9,30 +9,24 @@ public class EnderecoCliente {
 
     @Id
     @Column(nullable = false, length = 15)
-    private Long cep;
+    private String cep;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false)
     private String rua;
-    @Column(nullable = false, length = 15)
-    private String numeroCasa;
-
-    @Column(nullable = false, length = 15)
-    private String complemento;
-
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false)
     private String bairro;
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false)
     private String cidade;
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false)
     private String estado;
-    @Column(nullable = false, length = 15)
+    @Column(nullable = false)
     private String pais;
 
-    public Long getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Long cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
@@ -42,22 +36,6 @@ public class EnderecoCliente {
 
     public void setRua(String rua) {
         this.rua = rua;
-    }
-
-    public String getNumeroCasa() {
-        return numeroCasa;
-    }
-
-    public void setNumeroCasa(String numeroCasa) {
-        this.numeroCasa = numeroCasa;
-    }
-
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
     }
 
     public String getBairro() {

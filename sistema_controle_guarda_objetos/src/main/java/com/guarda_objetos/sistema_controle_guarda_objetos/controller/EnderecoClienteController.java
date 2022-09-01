@@ -38,7 +38,7 @@ public class EnderecoClienteController {
     }
 
     @GetMapping("/{cep}")
-    public ResponseEntity<EnderecoCliente> getCep(@PathVariable(value = "cep") Long cep){
+    public ResponseEntity<EnderecoCliente> getCep(@PathVariable(value = "cep") String cep){
         Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cep);
         if (enderecoClienteOptional.isPresent()){
             return new ResponseEntity<>(enderecoClienteOptional.get(), HttpStatus.OK);
@@ -48,7 +48,7 @@ public class EnderecoClienteController {
     }
 
     @DeleteMapping("/{cep}")
-    public ResponseEntity<EnderecoCliente> deletarEndereco(@PathVariable(value = "cep") Long cep){
+    public ResponseEntity<EnderecoCliente> deletarEndereco(@PathVariable(value = "cep") String cep){
         Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cep);
         if(enderecoClienteOptional.isPresent()){
             enderecoClienteService.delete(enderecoClienteOptional.get());
@@ -59,7 +59,7 @@ public class EnderecoClienteController {
     }
 
     @PutMapping("/{cep}")
-    public ResponseEntity<EnderecoCliente> atualizarEndereco(@PathVariable(value = "cep") Long cep, @RequestBody @Valid EnderecoClienteDto enderecoClienteDto){
+    public ResponseEntity<EnderecoCliente> atualizarEndereco(@PathVariable(value = "cep") String cep, @RequestBody @Valid EnderecoClienteDto enderecoClienteDto){
         Optional<EnderecoCliente> enderecoClienteOptional = enderecoClienteService.findById(cep);
         if(enderecoClienteOptional.isPresent()){
             var enderecoCliente = new EnderecoCliente();

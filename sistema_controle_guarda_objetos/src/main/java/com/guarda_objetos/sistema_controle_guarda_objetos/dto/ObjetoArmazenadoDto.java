@@ -1,5 +1,6 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.dto;
 
+import com.guarda_objetos.sistema_controle_guarda_objetos.model.Clientes;
 import com.guarda_objetos.sistema_controle_guarda_objetos.model.ObjetoArmazenado;
 
 import javax.validation.constraints.NotBlank;
@@ -8,13 +9,11 @@ import java.util.Date;
 public class ObjetoArmazenadoDto {
 
     @NotBlank
-    private String cpfCliente;
-    @NotBlank
     private String nome;
     @NotBlank
-    private Boolean objetosArmazenado;
+    private String objetosArmazenado;
     @NotBlank
-    private Integer quantidadeObjetosArmazenados;
+    private String quantidadeObjetosArmazenados;
     @NotBlank
     private String descricaoObjetos;
     @NotBlank
@@ -23,13 +22,16 @@ public class ObjetoArmazenadoDto {
     private String dataPrevistaRetirada;
     private String dataRetirada;
 
-    public String getCpfCliente() {
-        return cpfCliente;
+    private Clientes clienteResponsavel;
+
+    public Clientes getClienteResponsavel() {
+        return clienteResponsavel;
     }
 
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
+    public void setClienteResponsavel(Clientes clienteResponsavel) {
+        this.clienteResponsavel = clienteResponsavel;
     }
+
 
     public String getNome() {
         return nome;
@@ -39,19 +41,19 @@ public class ObjetoArmazenadoDto {
         this.nome = nome;
     }
 
-    public Boolean getObjetosArmazenado() {
+    public String getObjetosArmazenado() {
         return objetosArmazenado;
     }
 
-    public void setObjetosArmazenado(Boolean objetosArmazenado) {
+    public void setObjetosArmazenado(String objetosArmazenado) {
         this.objetosArmazenado = objetosArmazenado;
     }
 
-    public Integer getQuantidadeObjetosArmazenados() {
+    public String getQuantidadeObjetosArmazenados() {
         return quantidadeObjetosArmazenados;
     }
 
-    public void setQuantidadeObjetosArmazenados(Integer quantidadeObjetosArmazenados) {
+    public void setQuantidadeObjetosArmazenados(String quantidadeObjetosArmazenados) {
         this.quantidadeObjetosArmazenados = quantidadeObjetosArmazenados;
     }
 

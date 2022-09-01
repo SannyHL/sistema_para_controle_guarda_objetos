@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @ResponseBody
@@ -34,9 +35,9 @@ public class ObjetoArmazenadoController {
         return new ResponseEntity<>(objetoArmazenadoService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{cpfCliente}")
-    public ResponseEntity<ObjetoArmazenado> getCpf(@PathVariable(value = "cpfCliente") String cpfCliente){
-        Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findCpf(cpfCliente);
+    @GetMapping("/{id}")
+    public ResponseEntity<ObjetoArmazenado> getId(@PathVariable(value = "id") UUID id){
+        Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findId(id);
         if (objetoArmazenadoOptional.isPresent()){
             return new ResponseEntity<>(objetoArmazenadoOptional.get(), HttpStatus.OK);
         }else{
@@ -44,9 +45,9 @@ public class ObjetoArmazenadoController {
         }
     }
 
-    @DeleteMapping("/{cpfCliente}")
-    public ResponseEntity<ObjetoArmazenado> deletaObjeto(@PathVariable(value = "cpfCliente") String cpfCliente){
-        Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findCpf(cpfCliente);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ObjetoArmazenado> deletaObjeto(@PathVariable(value = "id") UUID id){
+        Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findId(id);
         if (objetoArmazenadoOptional.isPresent()){
             objetoArmazenadoService.deletar(objetoArmazenadoOptional.get());
             return new ResponseEntity<>(HttpStatus.OK);
@@ -55,12 +56,13 @@ public class ObjetoArmazenadoController {
         }
     }
 
-    @PutMapping("/{cpfCliente}")
-    public ResponseEntity<ObjetoArmazenado> atualizarEndereco(@PathVariable(value = "cpfCliente") String cpfCliente, @RequestBody @Valid ObjetoArmazenadoDto objetoArmazenadoDto){
-        Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findCpf(cpfCliente);
+    @PutMapping("/{id}")
+    public ResponseEntity<ObjetoArmazenado> atualizarEndereco(@PathVariable(value = "id") UUID id, @RequestBody @Valid ObjetoArmazenadoDto objetoArmazenadoDto){
+        Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findId(id);
         if(objetoArmazenadoOptional.isPresent()){
             var objetoArmazenado = new ObjetoArmazenado();
             BeanUtils.copyProperties(objetoArmazenadoDto, objetoArmazenado);
+            objetoArmazenado.setId(objetoArmazenadoOptional.get().getId());
             return new ResponseEntity<>(objetoArmazenadoService.create(objetoArmazenado), HttpStatus.CREATED);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

@@ -24,7 +24,7 @@ public class EnderecoClienteService {
         return enderecoClienteRepository.findAll();
     }
 
-    public Optional<EnderecoCliente> findById(Long cep) {
+    public Optional<EnderecoCliente> findById(String cep) {
         return enderecoClienteRepository.findById(cep);
     }
 

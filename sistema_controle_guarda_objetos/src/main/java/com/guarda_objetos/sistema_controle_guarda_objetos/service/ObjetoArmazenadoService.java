@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ObjetoArmazenadoService {
@@ -25,8 +26,8 @@ public class ObjetoArmazenadoService {
         return objetoArmazenadoRepository.findAll();
     }
 
-    public Optional<ObjetoArmazenado> findCpf(String cpfCliente) {
-        return objetoArmazenadoRepository.findById(cpfCliente);
+    public Optional<ObjetoArmazenado> findId(UUID id) {
+        return objetoArmazenadoRepository.findById(id);
     }
 
     @Transactional

@@ -1,5 +1,8 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.dto;
 
+import com.guarda_objetos.sistema_controle_guarda_objetos.model.EnderecoCliente;
+
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
@@ -19,6 +22,22 @@ public class ClientesDto {
     private String telefoneFixo;
 
     private String whatsapp;
+
+    @NotBlank
+    private String numeroCasa;
+
+    @NotBlank
+    private String complementoCasa;
+
+    private EnderecoCliente cep;
+
+    public EnderecoCliente getCep() {
+        return cep;
+    }
+
+    public void setCep(EnderecoCliente cep) {
+        this.cep = cep;
+    }
 
     public String getCpfCliente() {
         return cpfCliente;
@@ -76,6 +95,19 @@ public class ClientesDto {
         this.whatsapp = whatsapp;
     }
 
+    public String getNumeroCasa() {
+        return numeroCasa;
+    }
 
+    public void setNumeroCasa(String numeroCasa) {
+        this.numeroCasa = numeroCasa;
+    }
 
+    public String getComplementoCasa() {
+        return complementoCasa;
+    }
+
+    public void setComplementoCasa(String complementoCasa) {
+        this.complementoCasa = complementoCasa;
+    }
 }

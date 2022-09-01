@@ -6,13 +6,9 @@ import javax.validation.constraints.NotBlank;
 public class EnderecoClienteDto {
 
     @NotBlank
-    private Long cep;
+    private String cep;
     @NotBlank
     private String rua;
-    @NotBlank
-    private String numeroCasa;
-
-    private String complemento;
     @NotBlank
     private String bairro;
     @NotBlank
@@ -22,21 +18,14 @@ public class EnderecoClienteDto {
     @NotBlank
     private String pais;
 
-    public Long getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Long cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
-    public String getComplemento() {
-        return complemento;
-    }
-
-    public void setComplemento(String complemento) {
-        this.complemento = complemento;
-    }
 
     public String getRua() {
         return rua;
@@ -44,14 +33,6 @@ public class EnderecoClienteDto {
 
     public void setRua(String rua) {
         this.rua = rua;
-    }
-
-    public String getNumeroCasa() {
-        return numeroCasa;
-    }
-
-    public void setNumeroCasa(String numeroCasa) {
-        this.numeroCasa = numeroCasa;
     }
 
     public String getBairro() {

@@ -1,21 +1,24 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 @Table(name = "objetos_armazenados")
-public class ObjetoArmazenado {
+public class ObjetoArmazenado implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(nullable = false, length = 15)
-    private String cpfCliente;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @Column(nullable = false, length = 50)
     private String nome;
     @Column(nullable = false, length = 100)
-    private Boolean objetosArmazenado;
+    private String objetosArmazenado;
     @Column(nullable = false, length = 5)
-    private Integer quantidadeObjetosArmazenados;
+    private String quantidadeObjetosArmazenados;
     @Column(nullable = false, length = 100)
     private String descricaoObjetos;
     @Column(nullable = false, length = 15)
@@ -25,27 +28,27 @@ public class ObjetoArmazenado {
     @Column(length = 15)
     private String dataRetirada;
 
-    public String getCpfCliente() {
-        return cpfCliente;
+    public UUID getId() {
+        return id;
     }
 
-    public void setCpfCliente(String cpfCliente) {
-        this.cpfCliente = cpfCliente;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
-    public Boolean getObjetosArmazenado() {
+    public String getObjetosArmazenado() {
         return objetosArmazenado;
     }
 
-    public void setObjetosArmazenado(Boolean objetosArmazenado) {
+    public void setObjetosArmazenado(String objetosArmazenado) {
         this.objetosArmazenado = objetosArmazenado;
     }
 
-    public Integer getQuantidadeObjetosArmazenados() {
+    public String getQuantidadeObjetosArmazenados() {
         return quantidadeObjetosArmazenados;
     }
 
-    public void setQuantidadeObjetosArmazenados(Integer quantidadeObjetosArmazenados) {
+    public void setQuantidadeObjetosArmazenados(String quantidadeObjetosArmazenados) {
         this.quantidadeObjetosArmazenados = quantidadeObjetosArmazenados;
     }
 
@@ -89,8 +92,16 @@ public class ObjetoArmazenado {
         this.nome = nome;
     }
 
+    public Clientes getClienteResponsavel() {
+        return clienteResponsavel;
+    }
+
+    public void setClienteResponsavel(Clientes clienteResponsavel) {
+        this.clienteResponsavel = clienteResponsavel;
+    }
+
     @ManyToOne
     @JoinColumn(name = "tb_clientes_id")
-    private Clientes clientes;
+    private Clientes clienteResponsavel;
 
 }
