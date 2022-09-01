@@ -8,12 +8,12 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "tb_objetos_armazenados")
-public class ObjetoArmazenado implements Serializable{
+public class ObjetoArmazenado{
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
-    @Column(unique = false)
-    private Long id;
+    @Column(name = "id_objeto")
+    private Integer id;
 
     @Column(nullable = false, length = 50)
     private String nome;
@@ -30,11 +30,11 @@ public class ObjetoArmazenado implements Serializable{
     @Column(length = 15)
     private String dataRetirada;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
