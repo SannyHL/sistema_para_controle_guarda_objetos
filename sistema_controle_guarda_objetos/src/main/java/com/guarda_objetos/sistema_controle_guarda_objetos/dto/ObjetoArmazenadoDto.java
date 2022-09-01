@@ -11,7 +11,7 @@ public class ObjetoArmazenadoDto {
     @NotBlank
     private String nome;
     @NotBlank
-    private String objetosArmazenado;
+    private String temObjetosArmazenado;
     @NotBlank
     private String quantidadeObjetosArmazenados;
     @NotBlank
@@ -41,12 +41,12 @@ public class ObjetoArmazenadoDto {
         this.nome = nome;
     }
 
-    public String getObjetosArmazenado() {
-        return objetosArmazenado;
+    public String getTemObjetosArmazenado() {
+        return temObjetosArmazenado;
     }
 
-    public void setObjetosArmazenado(String objetosArmazenado) {
-        this.objetosArmazenado = objetosArmazenado;
+    public void setTemObjetosArmazenado(String temObjetosArmazenado) {
+        this.temObjetosArmazenado = temObjetosArmazenado;
     }
 
     public String getQuantidadeObjetosArmazenados() {

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface ObjetoArmazenadoRepository extends JpaRepository<ObjetoArmazenado, UUID> {
+public interface ObjetoArmazenadoRepository extends JpaRepository<ObjetoArmazenado, Integer> {
 
 
 }

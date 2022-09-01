@@ -26,7 +26,7 @@ public class ObjetoArmazenadoService {
         return objetoArmazenadoRepository.findAll();
     }
 
-    public Optional<ObjetoArmazenado> findId(UUID id) {
+    public Optional<ObjetoArmazenado> findId(Integer id) {
         return objetoArmazenadoRepository.findById(id);
     }
 

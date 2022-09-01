@@ -1,22 +1,24 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
+import org.hibernate.annotations.GeneratorType;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "objetos_armazenados")
-public class ObjetoArmazenado implements Serializable {
-    private static final long serialVersionUID = 1L;
+@Table(name = "tb_objetos_armazenados")
+public class ObjetoArmazenado implements Serializable{
 
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @Column(unique = false)
+    private Long id;
 
     @Column(nullable = false, length = 50)
     private String nome;
     @Column(nullable = false, length = 100)
-    private String objetosArmazenado;
+    private String temObjetosArmazenado;
     @Column(nullable = false, length = 5)
     private String quantidadeObjetosArmazenados;
     @Column(nullable = false, length = 100)
@@ -28,21 +30,15 @@ public class ObjetoArmazenado implements Serializable {
     @Column(length = 15)
     private String dataRetirada;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getObjetosArmazenado() {
-        return objetosArmazenado;
-    }
 
-    public void setObjetosArmazenado(String objetosArmazenado) {
-        this.objetosArmazenado = objetosArmazenado;
-    }
 
     public String getQuantidadeObjetosArmazenados() {
         return quantidadeObjetosArmazenados;
@@ -98,6 +94,14 @@ public class ObjetoArmazenado implements Serializable {
 
     public void setClienteResponsavel(Clientes clienteResponsavel) {
         this.clienteResponsavel = clienteResponsavel;
+    }
+
+    public String getTemObjetosArmazenado() {
+        return temObjetosArmazenado;
+    }
+
+    public void setTemObjetosArmazenado(String temObjetosArmazenado) {
+        this.temObjetosArmazenado = temObjetosArmazenado;
     }
 
     @ManyToOne

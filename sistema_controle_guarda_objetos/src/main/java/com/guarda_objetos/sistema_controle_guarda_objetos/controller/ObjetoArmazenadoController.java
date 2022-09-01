@@ -36,7 +36,7 @@ public class ObjetoArmazenadoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ObjetoArmazenado> getId(@PathVariable(value = "id") UUID id){
+    public ResponseEntity<ObjetoArmazenado> getId(@PathVariable(value = "id") Integer id){
         Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findId(id);
         if (objetoArmazenadoOptional.isPresent()){
             return new ResponseEntity<>(objetoArmazenadoOptional.get(), HttpStatus.OK);
@@ -46,7 +46,7 @@ public class ObjetoArmazenadoController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ObjetoArmazenado> deletaObjeto(@PathVariable(value = "id") UUID id){
+    public ResponseEntity<ObjetoArmazenado> deletaObjeto(@PathVariable(value = "id") Integer id){
         Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findId(id);
         if (objetoArmazenadoOptional.isPresent()){
             objetoArmazenadoService.deletar(objetoArmazenadoOptional.get());
@@ -57,7 +57,7 @@ public class ObjetoArmazenadoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ObjetoArmazenado> atualizarEndereco(@PathVariable(value = "id") UUID id, @RequestBody @Valid ObjetoArmazenadoDto objetoArmazenadoDto){
+    public ResponseEntity<ObjetoArmazenado> atualizarEndereco(@PathVariable(value = "id") Integer id, @RequestBody @Valid ObjetoArmazenadoDto objetoArmazenadoDto){
         Optional<ObjetoArmazenado> objetoArmazenadoOptional = objetoArmazenadoService.findId(id);
         if(objetoArmazenadoOptional.isPresent()){
             var objetoArmazenado = new ObjetoArmazenado();
