@@ -27,7 +27,7 @@ public class ObjetoArmazenadoController {
         return "cadastroObjeto";
     }
     @PostMapping("/cadastrar")
-    public ResponseEntity<ObjetoArmazenado> criarObjetonavegador(@RequestBody @Valid ObjetoArmazenadoDto objetoArmazenadoDto){
+    public ResponseEntity<ObjetoArmazenado> criarObjetonavegador(@Valid ObjetoArmazenadoDto objetoArmazenadoDto){
         var obejetoArmazenado = new ObjetoArmazenado();
         BeanUtils.copyProperties(objetoArmazenadoDto, obejetoArmazenado);
         return new ResponseEntity<>(objetoArmazenadoService.create(obejetoArmazenado), HttpStatus.CREATED);
