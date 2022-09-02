@@ -1,10 +1,6 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
-import org.hibernate.annotations.GeneratorType;
-
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tb_objetos_armazenados")

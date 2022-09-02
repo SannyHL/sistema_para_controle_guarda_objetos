@@ -2,9 +2,7 @@ package com.guarda_objetos.sistema_controle_guarda_objetos.dto;
 
 import com.guarda_objetos.sistema_controle_guarda_objetos.model.EnderecoCliente;
 
-import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 
 public class ClientesDto {
 

@@ -1,10 +1,8 @@
 package com.guarda_objetos.sistema_controle_guarda_objetos.dto;
 
 import com.guarda_objetos.sistema_controle_guarda_objetos.model.Clientes;
-import com.guarda_objetos.sistema_controle_guarda_objetos.model.ObjetoArmazenado;
 
 import javax.validation.constraints.NotBlank;
-import java.util.Date;
 
 public class ObjetoArmazenadoDto {
 

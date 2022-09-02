@@ -2,7 +2,6 @@ package com.guarda_objetos.sistema_controle_guarda_objetos.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "tb_clientes")
