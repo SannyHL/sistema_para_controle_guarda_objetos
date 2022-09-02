@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='<c:url value="css/style.css"/>'>
+</head>
+<title>Cadastro clientes</title>
+<body>
+<header>
+    <section class="cabecario">
+        <h1>Cadastro clientes</h1>
+    </section>
+</header>
+    <main>
+        <form method="POST" action="/clientes/cadastrar" class="entradas">
+            <input type="cpf" class="cpf" name="cpfCliente" required placeholder="CPF">
+            <input type="nomeCompleto" class="nomeCompleto" name="nome" required placeholder="Nome Completo Cliente">
+            <input type="dataNascimento" class="dataNascimento" name="dataNascimento" required placeholder="Data de Nascimento">
+            <input type="email" class="email" name="email" required placeholder="Email">
+            <input type="telefone" class="telefone" name="telefone" required placeholder="Celular">
+            <input type="telefoneFixo" class="telefoneFixo" name="telefoneFixo" required placeholder="Telefone Fixo">
+            <input type="whatsapp" class="whatsapp" name="whatsapp" required placeholder="Whatsapp">
+            <input type="numeroCasa" class="numeroCasa" name="numeroCasa" required placeholder="Numero da Casa">
+            <input type="complementoCasa" class="complementoCasa" name="complementoCasa" required placeholder="Complemento">
+            <input type="cep" class="cep" name="cep" required placeholder="Cep">
+            <button type="submit" checked class="enviar"> Enviar formulário
+            </button>
+        </form>
+    </main>
+    <footer></footer>
+    </body>
+
+</html>

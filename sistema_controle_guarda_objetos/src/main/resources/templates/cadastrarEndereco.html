@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='<c:url value="css/style.css"/>'>
+</head>
+<title>Cadastro Endereço</title>
+<body>
+<header>
+    <section class="cabecario">
+        <h1>Cadastro Endereço</h1>
+    </section>
+</header>
+<main>
+    <form method="POST" action="/enderecos/cadastrar" class="entradas">
+        <input type="cep" class="cep" name="cep" required placeholder="CEP">
+        <input type="rua" class="rua" name="rua" required placeholder="Rua">
+        <input type="bairro" class="bairro" name="bairro" required placeholder="Bairro">
+        <input type="cidade" class="cidade" name="cidade" required placeholder="Cidade">
+        <input type="estado" class="estado" name="estado" required placeholder="Estado">
+        <input type="pais" class="pais" name="pais" required placeholder="País">
+
+        <button type="submit" checked class="enviar"> Cadastrar Endereço
+        </button>
+    </form>
+</main>
+<footer></footer>
+</body>
+
+</html>

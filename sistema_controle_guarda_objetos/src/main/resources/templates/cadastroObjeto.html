@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href='<c:url value="css/style.css"/>'>
+</head>
+<title>Cadastro objeto</title>
+<body>
+<header>
+    <section class="cabecario">
+        <h1>Cadastro objeto</h1>
+    </section>
+</header>
+<main>
+    <form method="POST" action="/objetos/cadastrar" class="entradas">
+        <input type="nome" class="nome" name="nome" required placeholder="Nome Cliente">
+        <input type="temObjetosArmazenado" class="temObjetosArmazenado" name="temObjetosArmazenado" required placeholder="Tem objetos armazenado no momento?">
+        <input type="quantidadeObjetosArmazenados" class="quantidadeObjetosArmazenados" name="quantidadeObjetosArmazenados" required placeholder="Quantidade de objetos armazenados">
+        <input type="descricaoObjetos" class="descricaoObjetos" name="descricaoObjetos" required placeholder="Descricao dos objetos">
+        <label>Data armazenamento</label>
+        <input type="date" class="dataArmazenamento" name="dataArmazenamento" required placeholder="Data armazenamento">
+        <label>Data prevista para a retirada</label>
+        <input type="date" class="dataPrevistaRetirada" name="dataPrevistaRetirada" required placeholder="Data prevista para a retirada">
+        <label>Data da Retirada</label>
+        <input type="date" class="dataRetirada" name="dataRetirada" required placeholder="Data da Retirada">
+        <input type="clienteResponsavel" class="clienteResponsavel" name="clienteResponsavel" required placeholder="Cpf do cliente responsável">
+
+        <button type="submit" checked class="enviar"> Cadastrar novo objeto
+        </button>
+    </form>
+</main>
+<footer></footer>
+</body>
+
+</html>
