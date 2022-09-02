@@ -12,7 +12,7 @@
 ### Descrição:
 Tive como objetivo para criação desse, desenvolver um sistema que possa organizar o armazenamento de objetos, em locais como guarda-volumes, bancos e outros.
 No sistema, a entidade "clientes" tem como id o cpf do cliente e como chave estrangeira o cep, no caso o endereço já deve estar cadastrado no banco de dados. Os objetos, ao serem cadastrados recebem um id que é gerado automaticamente, e eles têm como chave estrangeira o cpf do cliente.
-Tanto o back-end como o front-end desse projeto foi feito com o Spring Boot.
+Tanto o back-end como o front-end desse projeto foram feitos com o Spring Boot.
 
 Há três formas de realizar o cadastro e leitura de clientes e de endereços:
 - Pelo navegador;
