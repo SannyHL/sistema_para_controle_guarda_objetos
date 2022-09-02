@@ -7,15 +7,14 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
-@RestController
-@ResponseBody
+@Controller
 @CrossOrigin("*")
 @RequestMapping("/objetos")
 public class ObjetoArmazenadoController {
@@ -23,6 +22,16 @@ public class ObjetoArmazenadoController {
     @Autowired
     private ObjetoArmazenadoService objetoArmazenadoService;
 
+    @GetMapping("/cadastrar")
+    public String cadastro(){
+        return "cadastroObjeto";
+    }
+    @PostMapping("/cadastrar")
+    public ResponseEntity<ObjetoArmazenado> criarObjetonavegador(@RequestBody @Valid ObjetoArmazenadoDto objetoArmazenadoDto){
+        var obejetoArmazenado = new ObjetoArmazenado();
+        BeanUtils.copyProperties(objetoArmazenadoDto, obejetoArmazenado);
+        return new ResponseEntity<>(objetoArmazenadoService.create(obejetoArmazenado), HttpStatus.CREATED);
+    }
     @PostMapping("/")
     public ResponseEntity<ObjetoArmazenado> criarObjeto(@RequestBody @Valid ObjetoArmazenadoDto objetoArmazenadoDto){
         var obejetoArmazenado = new ObjetoArmazenado();

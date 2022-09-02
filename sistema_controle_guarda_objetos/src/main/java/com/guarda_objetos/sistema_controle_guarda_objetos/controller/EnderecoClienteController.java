@@ -8,16 +8,14 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
-@ResponseBody
+@Controller
 @CrossOrigin("*")
 @RequestMapping("/enderecos")
 public class EnderecoClienteController {
@@ -25,9 +23,20 @@ public class EnderecoClienteController {
     @Autowired
     private EnderecoClienteService enderecoClienteService;
 
+    @GetMapping("/cadastrar")
+    public String novoEndereco(){
+        return "cadastrarEndereco";
+    }
+    @PostMapping("/cadastrar")
+    public ResponseEntity<EnderecoCliente> criarEnderecoNavegador(@Valid EnderecoClienteDto enderecoClienteDto){
+       var enderecoCliente = new EnderecoCliente();
+        BeanUtils.copyProperties(enderecoClienteDto, enderecoCliente);
+        return new ResponseEntity<>(enderecoClienteService.create(enderecoCliente), HttpStatus.CREATED);
+    }
+
     @PostMapping("/")
     public ResponseEntity<EnderecoCliente> criarEndereco(@RequestBody @Valid EnderecoClienteDto enderecoClienteDto){
-       var enderecoCliente = new EnderecoCliente();
+        var enderecoCliente = new EnderecoCliente();
         BeanUtils.copyProperties(enderecoClienteDto, enderecoCliente);
         return new ResponseEntity<>(enderecoClienteService.create(enderecoCliente), HttpStatus.CREATED);
     }

@@ -8,16 +8,15 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.List;
 import java.util.Optional;
 
-@RestController
-@ResponseBody
+@Controller
 @CrossOrigin("*")
 @RequestMapping("/clientes")
 public class ClientesController {
@@ -25,18 +24,28 @@ public class ClientesController {
     @Autowired
     private ClientesService clientesService;
 
+    @GetMapping("/cadastrar")
+    public String cadastro(){
+        return "cadastrarClientes";
+    }
+    @PostMapping("/cadastrar")
+    public ResponseEntity<Clientes> criaClienteNavegador( @Valid ClientesDto clientesDto){
+        var clientes = new Clientes();
+        BeanUtils.copyProperties(clientesDto, clientes);
+        clientes.setDataRegistro(LocalDateTime.now(ZoneId.of("UTC")));
+        System.out.println("Entrei");
+        return new ResponseEntity<>(clientesService.create(clientes), HttpStatus.CREATED);
+
+    }
+
     @PostMapping("/")
     public ResponseEntity<Clientes> criaCliente(@RequestBody @Valid ClientesDto clientesDto){
         var clientes = new Clientes();
         BeanUtils.copyProperties(clientesDto, clientes);
         clientes.setDataRegistro(LocalDateTime.now(ZoneId.of("UTC")));
+        System.out.println("Entrei");
         return new ResponseEntity<>(clientesService.create(clientes), HttpStatus.CREATED);
 
-    }
-
-    @GetMapping("/")
-    public ResponseEntity<List<Clientes>> pegarDados(){
-        return new ResponseEntity<>(clientesService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{cpfCliente}")
