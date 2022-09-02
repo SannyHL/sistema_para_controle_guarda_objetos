@@ -15,6 +15,7 @@ import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Optional;
+import java.util.List;
 
 @Controller
 @CrossOrigin("*")
@@ -37,6 +38,12 @@ public class ClientesController {
         return new ResponseEntity<>(clientesService.create(clientes), HttpStatus.CREATED);
 
     }
+
+    @GetMapping("/")
+    public ResponseEntity<List<Clientes>> getAll(){
+        return new ResponseEntity<>(clientesService.findAll(), HttpStatus.OK);
+    }
+
 
     @PostMapping("/")
     public ResponseEntity<Clientes> criaCliente(@RequestBody @Valid ClientesDto clientesDto){
