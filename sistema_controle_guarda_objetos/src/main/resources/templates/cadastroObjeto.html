@@ -2,34 +2,161 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href='<c:url value="css/style.css"/>'>
-</head>
-<title>Cadastro objeto</title>
-<body>
-<header>
-    <section class="cabecario">
-        <h1>Cadastro objeto</h1>
-    </section>
-</header>
-<main>
-    <form method="POST" action="/objetos/cadastrar" class="entradas">
-        <input type="nome" class="nome" name="nome" required placeholder="Nome Cliente">
-        <input type="temObjetosArmazenado" class="temObjetosArmazenado" name="temObjetosArmazenado" required placeholder="Tem objetos armazenado no momento?">
-        <input type="quantidadeObjetosArmazenados" class="quantidadeObjetosArmazenados" name="quantidadeObjetosArmazenados" required placeholder="Quantidade de objetos armazenados">
-        <input type="descricaoObjetos" class="descricaoObjetos" name="descricaoObjetos" required placeholder="Descricao dos objetos">
-        <label>Data armazenamento</label>
-        <input type="date" class="dataArmazenamento" name="dataArmazenamento" required placeholder="Data armazenamento">
-        <label>Data prevista para a retirada</label>
-        <input type="date" class="dataPrevistaRetirada" name="dataPrevistaRetirada" required placeholder="Data prevista para a retirada">
-        <label>Data da Retirada</label>
-        <input type="date" class="dataRetirada" name="dataRetirada" required placeholder="Data da Retirada">
-        <input type="clienteResponsavel" class="clienteResponsavel" name="clienteResponsavel" required placeholder="Cpf do cliente responsável">
+    
+    <title>Cadastro objeto</title>
+    <style>
+        *{
+        margin: 0;
+        padding: 0;
+        }
+    
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
-        <button type="submit" checked class="enviar"> Cadastrar novo objeto
-        </button>
-    </form>
-</main>
-<footer></footer>
+        }
+        header{
+            background: linear-gradient(rgb(200, 200, 214), rgb(193, 243, 250));
+            width: 100%;
+            height: 150px;
+            text-align: center;
+        }
+        .cabecario{
+            
+            padding: 6%;
+            font-size: 2em;
+            color: rgb(4, 4, 39);
+            
+            
+        }
+        main{
+            text-align: center;
+            padding: 8% 0;
+            height: 110%;
+            height: 90%;
+            background: linear-gradient(rgb(193, 243, 250),rgb(200, 200, 214));
+            
+        }
+        label{
+            display: block;
+            margin: 2% auto;
+            font-size: 130%;
+            font-weight: bold;
+            color: rgb(5, 5, 71);
+            
+        }
+        
+        input{
+            display: inline;
+            flex-wrap: wrap;
+            margin-top: 0%;
+            margin-left: 0%;
+            height: 20%;
+            width: 40%;
+            border: 2px solid blue;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 17px;
+
+        }
+
+        textarea{
+            display: inline;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            height: 150px;
+            width: 60%;
+            border: 2px solid blue;
+            border-radius: 10px;
+            padding: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 18px;
+        }
+        
+        button{
+            display: block;
+            margin: 10% auto;
+
+        }
+        .enviar{
+            height: 50px;
+            width: 50%;
+            border: 2px solid blue;
+            border-radius: 10px;
+            padding: 0%;
+            border: none;
+            background: blue;
+            font-size: 17px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .enviar:hover{
+            height: 50px;
+            width: 50%;
+            color: blue;
+            font-size: 19px;
+            background: rgb(177, 177, 255);
+            transition: 2s;
+            font-weight: bold;
+        }
+
+        input::placeholder{
+            color: blue;
+            font-size: 17px;
+        }
+
+        textarea::placeholder{
+            color: blue;
+            font-size: 17px;
+        }
+
+        footer{
+            width: 100%;
+            height: 15%;
+            background: linear-gradient(rgb(200, 200, 214),rgb(193, 243, 250));
+            text-align: center;
+        }
+        footer p{
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <section class="cabecario">
+            <h1>Cadastro objeto</h1>
+        </section>
+    </header>
+    <main>
+        <form method="POST" action="/objetos/cadastrar" class="entradas">
+            <label>Nome Cliente:</label>
+            <input type="nome" class="nome" name="nome" required placeholder="Nome">
+            <label>Tem objetos armazenado no momento?</label>
+            <input type="temObjetosArmazenado" class="temObjetosArmazenado" name="temObjetosArmazenado" required placeholder="sim/não">
+            <label>Quantidade de objetos armazenados:</label>
+            <input type="quantidadeObjetosArmazenados" class="quantidadeObjetosArmazenados" name="quantidadeObjetosArmazenados" required placeholder="Quantidade">
+            <label>Descricao dos objetos:</label>
+            <textarea type="descricaoObjetos" class="descricaoObjetos" name="descricaoObjetos" required placeholder="Escreva aqui"></textarea>
+            <label>Data armazenamento:</label>
+            <input type="date" class="dataArmazenamento" name="dataArmazenamento" required placeholder="Data armazenamento">
+            <label>Data prevista para a retirada:</label>
+            <input type="date" class="dataPrevistaRetirada" name="dataPrevistaRetirada" required placeholder="Data prevista para a retirada">
+            <label>Data da Retirada:</label>
+            <input type="date" class="dataRetirada" name="dataRetirada" required placeholder="Data da Retirada">
+            <label>CPF:</label>
+            <input type="cpf" class="clienteResponsavel" name="clienteResponsavel" required placeholder="cpf">
+
+            <button type="submit" checked class="enviar"> Cadastrar novo objeto
+            </button>
+        </form>
+    </main>
+    <footer>
+        <p>Criado por Sanny Helen Lima</p>
+    </footer>
 </body>
 
 </html>
